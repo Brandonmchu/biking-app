@@ -1,0 +1,18 @@
+@import 'bootstrap';
+@import 'flat-ui';
+
+/*Adjusting Bootstrap*/
+.downdown-menu {
+  width: 97px !important;
+}
+
+.navbar-inner {
+  height:50px;
+}
+
+.navbar-inner .brand {
+  font-size:20px;
+  text-decoration: none;
+  padding-top:13px;
+  padding-left:40px;
+}
