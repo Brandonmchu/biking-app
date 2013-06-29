@@ -1,0 +1,10 @@
+<table>
+<% @bikes.each do |bike| %>
+<tr>
+<td><%= bike.title %></td>
+<td><%= bike.price %></td>
+<td><%= bike.url %></td>
+<td><%= bike.posted %></td>
+</tr>
+<% end %>
+</table>
