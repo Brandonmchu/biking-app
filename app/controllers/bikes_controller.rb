@@ -9,7 +9,7 @@ def show
 end
 
 def index
-  @bikes = Bike.all
+  @bikes = Bike.order('created_at DESC').limit(50).all
 end
 
 end

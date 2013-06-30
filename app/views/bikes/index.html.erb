@@ -1,10 +1,15 @@
 <table>
 <% @bikes.each do |bike| %>
 <tr>
-<td><%= bike.title %></td>
-<td><%= bike.price %></td>
-<td><%= bike.url %></td>
-<td><%= bike.posted %></td>
+<td>$<%= bike.price %>0</td>
+  <% if bike.posted != nil %>
+    <td><%= image_tag bike.posted, :height => '200', :width => '200' %></td>
+  <% else %>
+    <td><%= image_tag 'y-u-no-guy.jpg' %></td>
+  <% end %>
+
+<td><%= link_to bike.title, bike.url, :target => '_blank' %></td>
+<td><%= bike.created_at.strftime("%b %d, %H:%M") %></td>
 </tr>
 <% end %>
 </table>
