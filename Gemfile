@@ -9,6 +9,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem "flat-ui-rails"
 gem "nokogiri"
+gem 'whenever'
 
 group :development, :test do
   gem 'pg', '0.12.2'
