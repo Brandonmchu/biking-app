@@ -6,7 +6,7 @@ task :fetch_prices => :environment do
 
   url = "http://toronto.kijiji.ca/f-buy-and-sell-bikes-W0QQCatIdZ644"
   doc = Nokogiri::HTML(open(url))
-  for i in 0..19
+  for i in 0..5
     title = doc.at_css("#resultRow#{i} td .adLinkSB").text
     price = doc.at_css("#resultRow#{i} .prc").text
     price = '%.3f' % price.delete( "$" ).to_f
@@ -24,7 +24,7 @@ task :fetch_prices => :environment do
 
   urlCraigs = "http://toronto.en.craigslist.ca/tor/bik/"
   docCraigs = Nokogiri::HTML(open(urlCraigs))
-  docCraigs.css(".row").each do |bike|
+  docCraigs.css(".row").take(2).each do |bike|
     titleCraigs = bike.at_css(".pl a").text
     urlCraigs = "http://toronto.en.craigslist.ca"+bike.at_css(".pl a")[:href]
     unless bike.at_css(".price") == nil

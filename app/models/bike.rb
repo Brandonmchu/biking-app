@@ -1,4 +1,5 @@
 class Bike < ActiveRecord::Base
+
   attr_accessible :description, :price, :title, :url, :posted, :location
 
   validates :title,  presence: true

@@ -1,16 +1,7 @@
+<%= link_to 'update bikes', {:controller => "bikes", :action => "index", :lastDate => @bikes.first.created_at }, :remote=> true, class: "updateLink" %>
 <table>
+<%= @lastdate %>
 <% @bikes.each do |bike| %>
-<tr>
-<td>$<%= bike.price %>0</td>
-  <% if bike.posted != nil %>
-    <td><%= image_tag bike.posted, :height => '200', :width => '200' %></td>
-  <% else %>
-    <td><%= image_tag 'y-u-no-guy.jpg' %></td>
-  <% end %>
-
-<td><%= link_to bike.title, bike.url, :target => '_blank' %></td>
-<td><%= bike.location %></td>
-<td><%= bike.created_at.strftime("%b %d, %H:%M") %></td>
-</tr>
+  <%= render 'bike_post', :bike => bike %>
 <% end %>
 </table>
