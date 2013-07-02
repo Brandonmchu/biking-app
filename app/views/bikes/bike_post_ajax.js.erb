@@ -1,2 +1,2 @@
-$('table').prepend("<%= j(render('bike_post', :bike=> @bikesnew)) %>")
+$('.container-inner').prepend("<%= j(render('bike_post', :bike=> @bikesnew)) %>")
 $('.updateLink').replaceWith("<%= escape_javascript(link_to 'update bikes', {:controller => 'bikes', :action => 'index', :lastDate => @bikes.first.created_at }, :remote=> true, class: 'updateLink') %>")

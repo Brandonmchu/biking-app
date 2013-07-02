@@ -1,33 +1,48 @@
 <% if bike.kind_of?(Array) == true %>
 
   <% bike.each do |single| %>
-    <tr>
-    <td>$<%= single.price %>0</td>
+    <div class="card-container">
+      <div class="card-image">
       <% if single.posted != nil %>
-        <td><%= image_tag single.posted, :height => '200', :width => '200' %></td>
+        <%= image_tag single.posted, :height => '384', :width => '384' %>
       <% else %>
-        <td><%= image_tag 'y-u-no-guy.jpg' %></td>
+        <%= image_tag 'y-u-no-guy.jpg' %>
       <% end %>
-
-    <td><%= link_to single.title, single.url, :target => '_blank' %></td>
-    <td><%= single.location %></td>
-    <td><%= single.created_at.strftime("%b %d, %H:%M") %></td>
-    </tr>
+      </div>
+      <div class="card-info">
+        <div class="card-title">
+          <%= link_to single.title, single.url, :target => '_blank' %>
+        </div>
+        <div class="card-stats">
+          $<%= single.price %>0
+          <%= single.location %>
+          <%= single.created_at.strftime("%b %d, %H:%M") %>
+        </div>
+      </div>
+    </div>
   <% end %>
 
 <% else %>
 
-  <tr>
-  <td>$<%= bike.price %>0</td>
+  <div class="card-container">
+    <div class="card-image">
     <% if bike.posted != nil %>
-      <td><%= image_tag bike.posted, :height => '200', :width => '200' %></td>
+      <%= image_tag bike.posted, :height => '384', :width => '384' %>
     <% else %>
-      <td><%= image_tag 'y-u-no-guy.jpg' %></td>
+      <%= image_tag 'y-u-no-guy.jpg' %>
     <% end %>
-
-  <td><%= link_to bike.title, bike.url, :target => '_blank' %></td>
-  <td><%= bike.location %></td>
-  <td><%= bike.created_at.strftime("%b %d, %H:%M") %></td>
-  </tr>
+    </div>
+    <div class="card-info">
+      <div class="card-title">
+        <%= link_to bike.title, bike.url, :target => '_blank' %>
+      </div>
+      <div class="card-stats">
+        $<%= bike.price %>0
+        <%= bike.location %>
+        <%= bike.created_at.strftime("%b %d, %H:%M") %>
+      </div>
+    </div>
+  </div>
 
 <% end %>
+
