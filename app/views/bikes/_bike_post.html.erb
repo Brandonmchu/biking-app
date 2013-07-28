@@ -15,6 +15,7 @@
         </div>
         <div class="card-stats">
           $<%= single.price %>0
+          <%= single.category %>
           <%= single.location %>
           <%= single.created_at.strftime("%b %d, %H:%M") %>
         </div>
@@ -29,7 +30,8 @@
     <% if bike.posted != nil %>
       <%= image_tag bike.posted, :height => '384', :width => '384' %>
     <% else %>
-      <%= image_tag 'y-u-no-guy.jpg' %>
+      <% images = ["y-u-no-guy.jpg", "picard.jpg", "jackie.jpg"] %>
+      <%= image_tag images.sample %>
     <% end %>
     </div>
     <div class="card-info">
@@ -38,6 +40,7 @@
       </div>
       <div class="card-stats">
         $<%= bike.price %>0
+        <%= bike.category %>
         <%= bike.location %>
         <%= bike.created_at.strftime("%b %d, %H:%M") %>
       </div>
