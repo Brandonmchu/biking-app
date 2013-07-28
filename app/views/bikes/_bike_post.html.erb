@@ -1,12 +1,15 @@
-<% if bike.kind_of?(Array) == true %>
+<% if post.kind_of?(Array) == true %>
 
-  <% bike.each do |single| %>
+  
+
+  <% post.each do |single| %>
     <div class="card-container">
       <div class="card-image">
       <% if single.posted != nil %>
         <%= image_tag single.posted, :height => '384', :width => '384' %>
       <% else %>
-        <%= image_tag 'y-u-no-guy.jpg' %>
+        <% images = ["y-u-no-guy.jpg", "picard.jpg", "jackie.jpg"] %>
+        <%= image_tag images.sample %>
       <% end %>
       </div>
       <div class="card-info">
@@ -14,7 +17,11 @@
           <%= link_to single.title, single.url, :target => '_blank' %>
         </div>
         <div class="card-stats">
-          $<%= single.price %>0
+          <% if single.price > 0 %>
+            $<%= single.price %>0
+          <% else %>
+            Please Contact
+          <% end %>
           <%= single.category %>
           <%= single.location %>
           <%= single.created_at.strftime("%b %d, %H:%M") %>
@@ -27,8 +34,8 @@
 
   <div class="card-container">
     <div class="card-image">
-    <% if bike.posted != nil %>
-      <%= image_tag bike.posted, :height => '384', :width => '384' %>
+    <% if post.posted != nil %>
+      <%= image_tag post.posted, :height => '384', :width => '384' %>
     <% else %>
       <% images = ["y-u-no-guy.jpg", "picard.jpg", "jackie.jpg"] %>
       <%= image_tag images.sample %>
@@ -36,13 +43,17 @@
     </div>
     <div class="card-info">
       <div class="card-title">
-        <%= link_to bike.title, bike.url, :target => '_blank' %>
+        <%= link_to post.title, post.url, :target => '_blank' %>
       </div>
       <div class="card-stats">
-        $<%= bike.price %>0
-        <%= bike.category %>
-        <%= bike.location %>
-        <%= bike.created_at.strftime("%b %d, %H:%M") %>
+        <% if post.price > 0 %>
+          $<%= post.price %>0
+        <% else %>
+          Please Contact
+        <% end %>
+        <%= post.category %>
+        <%= post.location %>
+        <%= post.created_at.strftime("%b %d, %H:%M") %>
       </div>
     </div>
   </div>

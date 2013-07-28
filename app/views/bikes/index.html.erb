@@ -1,9 +1,9 @@
 <div id="container">
-  <%= link_to 'update bikes', {:controller => "bikes", :action => "index", :lastDate => @bikes.first.created_at }, :remote=> true, class: "updateLink" %>
+  <%= link_to 'update posts', {:controller => "bikes", :action => "index", :lastDate => @posts.first.created_at }, :remote=> true, class: "updateLink" %>
 
   <div class="container-inner">
-    <% @bikes.each do |bike| %>
-      <%= render 'bike_post', :bike => bike %>
+    <% @posts.each do |post| %>
+      <%= render 'bike_post', :post => post %>
     <% end %>
   </div>
 </div>
