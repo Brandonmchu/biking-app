@@ -1,6 +1,6 @@
 BCapp::Application.routes.draw do
   resources :users
-  resources :bikes, only: [:new, :index, :show]
+  resources :posts, only: [:new, :index, :show]
   resources :sessions, only: [:new, :create, :destroy]
 
   root :to => 'static_pages#home'

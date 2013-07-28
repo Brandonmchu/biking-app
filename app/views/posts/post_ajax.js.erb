@@ -1,0 +1,2 @@
+$('.container-inner').prepend("<%= j(render('post', :post=> @postsnew)) %>")
+$('.updateLink').replaceWith("<%= escape_javascript(link_to 'update posts', {:controller => 'posts', :action => 'index', :lastDate => @posts.first.created_at }, :remote=> true, class: 'updateLink') %>")
